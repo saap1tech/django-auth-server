@@ -21,7 +21,7 @@ def loginApi(request, username, password):
                 user_serializer = UserSerializer(user_data, many=False)
                 return Response(user_serializer.data)
             else:
-                return HttpResponse('error')
+                return HttpResponse('')
         else:
             user_var = auth.authenticate(request, username=username, password=password)
             auth.login(request, user_var)
@@ -31,6 +31,6 @@ def loginApi(request, username, password):
                 user_serializer = UserSerializer(user_data, many=False)
                 return Response(user_serializer.data)
             else:
-                return HttpResponse('error')
+                return HttpResponse('')
     else:
-        return HttpResponse('error')
+        return HttpResponse('')
